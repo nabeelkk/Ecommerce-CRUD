@@ -32,6 +32,16 @@ export default function EditProduct() {
       className="max-w-xl mx-auto space-y-4 mt-8"
       onSubmit={async (e) => {
         e.preventDefault();
+        if(form.title === "" || form.price ==""|| form.category === "" || form.image === "" || form.description === "" ){
+        toast.error("All fields are required!");
+        return
+        }
+        if(form.title.lenght < 4){
+            toast.error("Title must be 5 charecter ")
+        }
+        if(form.price < 10){
+            toast.error("price mmust be greater than 10 ")
+        }
         await updateProduct(id, { ...form, price: Number(form.price) });
         toast.success("Product updated!");
         nav(`/product/${id}`);

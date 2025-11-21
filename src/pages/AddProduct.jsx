@@ -21,6 +21,13 @@ export default function AddProduct() {
         toast.error("All fields are required!");
         return
     }
+    if(form.title.length < 4){
+        toast.error("Title must be 5 charecter ")
+    }
+    if(form.price < 10){
+        toast.error("price mmust be greater than 10 ")
+    }
+
     await addProduct({ ...form, price: Number(form.price) });
     
     toast.success("Product added successfully!");
