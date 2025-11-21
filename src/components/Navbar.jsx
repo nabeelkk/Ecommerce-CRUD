@@ -11,7 +11,7 @@ export default function Navbar({onSearch}) {
   return (
     <div className="navbar bg-base-100 shadow-sm">
         <div className="flex-1 px-5">
-            <Link to="/" className="text-xl font-bold">🛍 BlendFashion</Link>
+            <Link to="/" className="text-xl font-bold">🛍 Blend</Link>
         </div>
         <div className="flex gap-2 ml-auto">
             <input type="text" placeholder="Search" onChange={handleSearch} value={input} className="input input-bordered w-24 md:w-auto" />
