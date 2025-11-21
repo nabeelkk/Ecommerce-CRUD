@@ -1,34 +1,36 @@
 import React from "react";
+import "./Footer.css"; // make sure path is correct
 
 export default function Footer() {
   return (
-    <footer className="bg-base-200 text-base-content py-10 px-5 md:px-20">
-      <div className="grid grid-cols-2 items-start">
-        {/* Brand (Left) */}
-        <div className="justify-self-start">
-          <h2 className="text-2xl font-bold mb-2">Blend Fashion</h2>
-          <p className="text-sm text-gray-600">
-            Bringing you the best products with style and comfort.
+    <footer className="app-footer">
+      <div className="footer-grid">
+        {/* Brand */}
+        <div className="footer-brand">
+          <h2>Blend Fashion</h2>
+          <p>
+            Discover premium styles with comfort and elegance. Made for true fashion lovers.
           </p>
         </div>
 
-        {/* Contact (Right) */}
-        <div className="justify-self-end text-right">
-          <h3 className="font-semibold mb-2">Contact Us</h3>
-          <p className="text-sm text-gray-600">Bangalore, IN</p>
-          <p className="text-sm text-gray-600">Email: mohammednabeelkk.tkl@gmail.com</p>
-          <p className="text-sm text-gray-600">Phone: +91 80892 22453</p>
-          <div className="flex justify-end space-x-3 mt-3">
-            <a href="#" className="hover:text-primary transition-colors">🌐</a>
-            <a href="#" className="hover:text-primary transition-colors">🐦</a>
-            <a href="#" className="hover:text-primary transition-colors">📘</a>
-            <a href="#" className="hover:text-primary transition-colors">📸</a>
+        {/* Contact */}
+        <div className="footer-contact">
+          <h3>Contact Us</h3>
+          <p>Bangalore, IN</p>
+          <p>Email: mohammednabeelkk.tkl@gmail.com</p>
+          <p>Phone: +91 80892 22453</p>
+
+          <div className="footer-social" aria-label="social links">
+            <a href="#" aria-label="website">🌐</a>
+            <a href="#" aria-label="twitter">🐦</a>
+            <a href="#" aria-label="facebook">📘</a>
+            <a href="#" aria-label="instagram">📸</a>
           </div>
         </div>
       </div>
 
-      <div className="mt-10 border-t border-gray-300 pt-4 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} Blend Fashion. All rights reserved.
+      <div className="footer-bottom">
+        &copy; {new Date().getFullYear()} <strong>Blend Fashion</strong>. All rights reserved.
       </div>
     </footer>
   );

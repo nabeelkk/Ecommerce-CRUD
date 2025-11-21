@@ -1,0 +1,46 @@
+/* src/styles/Home.css */
+body{
+    background-color: rgb(28, 28, 29);
+}
+.home-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: rgb(28, 28, 29);
+}
+
+/* Product grid wrapper */
+.page-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Individual product grid container */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* No results message */
+.no-results {
+  color: #8ea2c6;
+  font-size: 1.1rem;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .home-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .home-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}

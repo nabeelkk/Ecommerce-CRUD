@@ -4,6 +4,7 @@ import apiService from "../services/api";
 import { useProducts } from "../context/ProductContext";
 import Loader from "../components/Loader";
 import toast from "react-hot-toast";
+import "./ProductDetails.css"; // import the CSS
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -16,33 +17,34 @@ export default function ProductDetails() {
 
   useEffect(() => {
     setLoading(true);
-    
-    const localData = localStorage.getItem('products')
-    if(localData){
-        const product = JSON.parse(localData)
-        const data = product.find(p=>p.id === Number(id))
-        if(data){
-            setProduct(data)
-            setLoading(false)
-            return
-        }
-    } 
-    apiService.getProduct(id).then(data => {
+    const localData = localStorage.getItem("products");
+    if (localData) {
+      const product = JSON.parse(localData);
+      const data = product.find((p) => p.id === Number(id));
+      if (data) {
+        setProduct(data);
+        setLoading(false);
+        return;
+      }
+    }
+    apiService.getProduct(id).then((data) => {
       setProduct(data);
       setLoading(false);
     });
-  }, [id, location.key]); // <-- re-fetch on navigation back
+  }, [id, location.key]);
 
   if (loading) return <Loader />;
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <img src={product.image} className="w-60 mx-auto" />
-      <h1 className="text-3xl font-bold mt-4">{product.title}</h1>
-      <p className="text-xl font-semibold mt-2">${product.price}</p>
+    <div className="product-details-container">
+      <img src={product.image} alt={product.title} />
+      <h1>{product.title}</h1>
+      <p className="text-xl font-semibold">${product.price}</p>
 
       <div className="mt-6 flex gap-4">
-        <Link to={`/edit/${product.id}`} className="btn btn-warning">Edit</Link>
+        <Link to={`/edit/${product.id}`} className="btn btn-warning">
+          Edit
+        </Link>
         <button
           className="btn btn-error"
           onClick={async () => {
@@ -55,7 +57,7 @@ export default function ProductDetails() {
         </button>
       </div>
 
-      <p className="mt-6">{product.description}</p>
+      <p className="description mt-6">{product.description}</p>
     </div>
   );
 }

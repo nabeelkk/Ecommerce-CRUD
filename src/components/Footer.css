@@ -1,0 +1,99 @@
+/* Footer.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+  --bg: rgba(10, 13, 17, 0.85);
+  --glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255,255,255,0.1);
+  --accent: #3a86ff;
+  --text: #e6eefc;
+  --muted: #8ea2c6;
+}
+
+/* Footer wrapper */
+.app-footer {
+  width: 100%;
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+  padding: 3rem 1rem 1.5rem 1rem;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Grid for brand + contact */
+.footer-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Brand */
+.footer-brand h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.footer-brand p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Contact */
+.footer-contact h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.footer-contact p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0.15rem 0;
+}
+
+/* Social icons */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+}
+.footer-social a {
+  transition: color 0.25s, transform 0.25s;
+  color: var(--muted);
+}
+.footer-social a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Footer bottom line */
+.footer-bottom {
+  max-width: 1280px;
+  margin: 2rem auto 0 auto;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .footer-contact {
+    text-align: left;
+  }
+  .footer-social {
+    justify-content: flex-start;
+  }
+}

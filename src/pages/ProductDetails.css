@@ -1,0 +1,103 @@
+/* src/styles/ProductDetails.css */
+:root {
+  --primary: #3a86ff;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --bg: rgba(10, 13, 29, 0.85);
+  --text: #e6eefc;
+  --subtext: #a3b5d2;
+  --btn-hover: rgba(58, 134, 255, 0.2);
+}
+
+/* Container */
+.product-details-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text);
+  text-align: center;
+}
+
+/* Image */
+.product-details-container img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: transform 0.3s ease;
+}
+
+.product-details-container img:hover {
+  transform: scale(1.05);
+}
+
+/* Title & Price */
+.product-details-container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.product-details-container p {
+  font-size: 1.1rem;
+  color: var(--subtext);
+}
+
+/* Buttons */
+.product-details-container .btn {
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.product-details-container .btn-warning {
+  background: var(--warning);
+  color: #fff;
+}
+
+.product-details-container .btn-warning:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(245,158,11,0.4);
+}
+
+.product-details-container .btn-error {
+  background: var(--error);
+  color: #fff;
+}
+
+.product-details-container .btn-error:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239,68,68,0.4);
+}
+
+/* Description */
+.product-details-container .description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  text-align: justify;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .product-details-container {
+    padding: 1.5rem;
+  }
+
+  .product-details-container img {
+    width: 150px;
+    height: 150px;
+  }
+}

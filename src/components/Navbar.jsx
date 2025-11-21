@@ -1,22 +1,36 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.css"; // ensure path matches
 
-export default function Navbar({onSearch}) {
-    const [input, setInput] = useState('')
+export default function Navbar({ onSearch }) {
+  const [input, setInput] = useState("");
 
-    const handleSearch = (e)=>{
-        setInput(e.target.value)
-        onSearch(e.target.value)
-    }
+  const handleSearch = (e) => {
+    setInput(e.target.value);
+    onSearch(e.target.value);
+  };
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
-        <div className="flex-1 px-5">
-            <Link to="/" className="text-xl font-bold">🛍 Blend</Link>
+    <nav className="app-navbar w-full">
+      {/* Centered container for consistent width */}
+      <div className="navbar-container">
+        {/* Brand */}
+        <Link to="/" className="nav-brand">🛍 Blend</Link>
+
+        {/* Search + Add Button */}
+        <div className="nav-right">
+          <input
+            type="text"
+            placeholder="Search products..."
+            onChange={handleSearch}
+            value={input}
+            className="nav-search"
+          />
+          <Link to="/add">
+            <button className="nav-btn">Add Product</button>
+          </Link>
         </div>
-        <div className="flex gap-2 ml-auto">
-            <input type="text" placeholder="Search" onChange={handleSearch} value={input} className="input input-bordered w-24 md:w-auto" />
-            <Link to="/add" className="btn btn-primary">Add Product</Link>
-        </div>
-    </div>
+      </div>
+    </nav>
   );
 }

@@ -1,21 +1,29 @@
 import { Link } from "react-router-dom";
+import "./ProductCard.css"; // import here or in a global CSS
+
 export default function ProductCard({ product }) {
   return (
-    <>
-    <div className="card bg-base-100 shadow-lg p-4">
-      <figure className="h-48 flex justify-center">
-        <img src={product.image} className="object-contain max-h-full" />
+    <article className="product-card" aria-labelledby={`title-${product.id}`}>
+      <figure className="product-figure" aria-hidden="true">
+        <img
+          src={product.image}
+          alt={product.title || "product image"}
+          className="product-img"
+          loading="lazy"
+        />
       </figure>
 
-      <div className="card-body">
-        <h2 className="text-sm font-bold">{product.title}</h2>
-        <p className="text-lg font-semibold">${product.price}</p>
+      <div className="product-body">
+        <h2 id={`title-${product.id}`} className="product-title">
+          {product.title}
+        </h2>
 
-        <Link to={`/product/${product.id}`} className="btn btn-primary btn-sm mt-2">
+        <p className="product-price">${Number(product.price).toFixed(2)}</p>
+
+        <Link to={`/product/${product.id}`} className="product-btn" aria-label={`View ${product.title}`}>
           View Details
         </Link>
       </div>
-    </div>
-    </>
+    </article>
   );
 }
